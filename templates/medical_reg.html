@@ -1,0 +1,237 @@
+{% extends "a2.html" %}
+
+{% block m1 %}
+
+<h1>Medical Registeration</h1>
+
+<form method="POST" action="medical_reg" onsubmit="return A()">
+    <table style="color:#000; font-weight:bold;" cellpadding="4" width="40%">
+        <tr>
+            <td>Name :</td>
+            <td><input type="text" id="txt1" name="T1">
+                <span id="sp1"></span></td>
+        </tr>
+         <tr>
+            <td>Owner :</td>
+            <td><input type="text" id="txt2" name="T2">
+                <span id="sp2"></span></td>
+        </tr>
+         <tr>
+            <td>License Number :</td>
+            <td><input type="text" id="txt3" name="T3">
+                <span id="sp3"></span></td>
+        </tr>
+         <tr>
+            <td>Address :</td>
+            <td><input type="text" id="txt4" name="T4">
+                <span id="sp4"></span></td>
+        </tr>
+        <tr>
+            <td>Contact :</td>
+            <td><input type="text" id="txt5" name="T5">
+                <span id="sp5"></span></td>
+        </tr>
+         <tr>
+            <td>Email :</td>
+            <td><input type="text" id="txt6" name="T6">
+                <span id="sp6"></span></td>
+        </tr>
+         <tr>
+            <td>Password :</td>
+            <td><input type="text" id="txt7" name="T7">
+                <span id="sp7"></span></td>
+        </tr>
+         <tr>
+            <td>Confirm Password :</td>
+            <td><input type="text" id="txt8" name="T8">
+                <span id="sp8"></span></td>
+        </tr>
+    </table>
+    <p><button style="border-radius:15px; color:#fff; background-color:#000;" type="submit" id="btn1" name="B1">REGISTER</button></p>
+</form>
+<script>
+	function A()
+	{
+		var t1,t2,t3,t4,t5,t6,t7,t8;
+		var s1,s2,s3,s4,s5,s6,s7,s8;
+
+		t1=document.getElementById("txt1");
+		t2=document.getElementById("txt2");
+		t3=document.getElementById("txt3");
+		t4=document.getElementById("txt4");
+		t5=document.getElementById("txt5");
+		t6=document.getElementById("txt6");
+		t7=document.getElementById("txt7");
+		t8=document.getElementById("txt8");
+
+		s1=document.getElementById("sp1");
+		s2=document.getElementById("sp2");
+		s3=document.getElementById("sp3");
+		s4=document.getElementById("sp4");
+		s5=document.getElementById("sp5");
+		s6=document.getElementById("sp6");
+		s7=document.getElementById("sp7");
+		s8=document.getElementById("sp8");
+
+		var a,b,c,d,e,f,g,h;
+		a=t1.value;
+		b=t2.value;
+		c=t3.value;
+		d=t4.value;
+		e=t5.value;
+		f=t6.value;
+		g=t7.value;
+		h=t8.value;
+
+		s1.innerHTML="";
+		s2.innerHTML="";
+		s3.innerHTML="";
+		s4.innerHTML="";
+		s5.innerHTML="";
+		s6.innerHTML="";
+		s7.innerHTML="";
+		s8.innerHTML="";
+
+		if(a==null || a=="")
+		{
+			s1.innerHTML="Enter the name";
+			t1.focus();
+			return false;
+		}
+		else if(check_alpha(a)==false)
+		{
+			s1.innerHTML="Enter alphabets only"
+			t1.select();
+			return false;
+		}
+		else if(b==null || b=="")
+		{
+			s2.innerHTML="Enter the name of owner";
+			t2.focus();
+			return false;
+		}
+		else if(check_alpha(b)==false)
+		{
+			s1.innerHTML="Enter the alphabets";
+			t2.select();
+			return false;
+		}
+		if(c==null || c=="")
+		{
+			s3.innerHTML="Enter the license number";
+			t3.focus();
+			return false;
+		}
+		if(d==null || d=="")
+		{
+			s4.innerHTML="Enter the address";
+			t4.focus();
+			return false;
+		}
+		if(e==null || e=="")
+		{
+			s5.innerHTML="Enter the contact";
+			t5.focus();
+			return false;
+		}
+		else if(check_digits(e)==false)
+		{
+			s5.innerHTML="Enter digits only";
+			t5.select();
+			return false;
+		}
+		else if(e<6000000000 || e>9999999999)
+		{
+			s5.innerHTML="Enter the valid contact number";
+			t5.select();
+			return false;
+		}
+		if(f==null || f=="")
+		{
+			s6.innerHTML="Enter the email";
+			t6.focus();
+			return false;
+		}
+		if(g==null || g=="")
+		{
+			s7.innerHTML="Enter the password";
+			t7.focus();
+			return false;
+		}
+		if(h==null || h=="")
+		{
+			s8.innerHTML="Re-write the password";
+			t8.focus();
+			return false;
+		}
+		else if(check_pass(g,h)==false)
+		{
+			t7.value="";
+			t8.value="";
+			s7.innerHTML="Password does not matched with confirm password";
+			return false;
+		}
+	}
+
+	function check_alpha(s)
+	{
+		var f=true;
+		var n=s.length;
+		for(var i=0;i<n;i++)
+		{
+			var ch=s.charAt(i);
+			if(ch>='a' && ch<='z' || ch>='A' && ch<='Z' || ch==' ')
+			{
+				f=true;
+			}
+			else
+			{
+				f=false;
+				break;
+			}
+		}
+		return f;
+	}
+
+	function check_digits(s)
+	{
+		var f=true;
+		var n=s.length;
+		for(var i=0;i<n;i++)
+		{
+			var ch=s.charAt(i);
+			if(ch>='0' && ch<='9')
+			{
+				f=true;
+			}
+			else
+			{
+				f=false;
+				break;
+			}
+		}
+		return f;
+	}
+
+	function check_pass(p1,p2)
+	{
+		if(p1==p2)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+
+</script>
+
+
+{% if vansh %}
+    <h3>{{vansh}}</h3>
+{% endif %}
+
+{% endblock %}

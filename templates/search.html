@@ -1,0 +1,38 @@
+{% extends 'a1.html' %}
+{% block m1 %}
+<form method="post" action="search" style="padding:15px;">
+    <p>
+        Medicine Name:
+        {% if nm %}
+            <input style="background-color:#ff9;" type="text" name="T1" value="{{nm}}">
+        {% else %}
+            <input type="text" name="T1">
+        {% endif %}
+        <button  type="submit">Search</button>
+    </p>
+</form>
+
+{% if data %}
+    <table style="color:#000; font-weight:bold;" width="100%">
+        {% for d in data %}
+        <tr>
+            <td>
+                name :{{d[1]}}<br />
+                company :{{d[2]}}<br />
+                price :{{d[5]}}<br />
+            </td>
+            <td>
+                email_medical :{{d[7]}}<br />
+                licence_number :{{d[3]}}<br />
+                type of medicine :{{d[4]}}<br />
+                usertype :{{d[9]}}<br />
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% elif msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "a3.html" %}
+{% block m1 %}
+
+<h1>Medicine Finder</h1>
+<form method="post" action="medicine_add">
+    <table style="color:#000; font-weight:bold;" width="33%">
+        <tr>
+            <td>Medicine Name :</td>
+            <td><input style="border-radius:15px" type="text" name="T1" id="txt1"></td>
+        </tr>
+        <tr>
+            <td>Company Name :</td>
+            <td><input style="border-radius:15px" type="text" name="T2" id="txt2"></td>
+        </tr>
+        <tr>
+            <td>Licence Number :</td>
+            <td><input style="border-radius:15px" type="text" name="T3" id="txt3"></td>
+        </tr>
+        <tr>
+            <td>Type of Medicine :</td>
+            <td><input style="border-radius:15px" type="text" name="T4" id="txt4"></td>
+        </tr>
+        <tr>
+            <td>Price :</td>
+            <td><input style="border-radius:15px" type="text" name="T5" id="txt5"></td>
+        </tr>
+    </table>
+
+    <button style="border-radius:15px; color:#fff; background-color:#f00"  type="submit">Registeration</button>
+</form>
+{% if vansh %}
+<h3>{{vansh}}</h3>
+{% endif %}
+
+{% endblock %}

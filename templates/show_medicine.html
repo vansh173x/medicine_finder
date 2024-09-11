@@ -1,0 +1,40 @@
+{% extends "a3.html" %}
+{% block m1 %}
+
+<h1>Medicine Data</h1>
+{% if vansh %}
+    {% for d in vansh %}
+        <h3>{{d[0]}}</h3>
+        <p>
+            medicine_name:{{d[1]}}<br />
+            company_name:{{d[2]}}<br />
+            licence_no:{{d[3]}}<br />
+            type_of_medicine:{{d[4]}}<br />
+            price:{{d[5]}}<br />
+            email:{{d[6]}}
+        </p>
+        <table>
+            <tr>
+                <td>
+                    <form method="post" action="edit_medicine">
+                        <input type="hidden" name="H1" value="{{d[0]}}" />
+                        <input type="submit" value="Edit"/>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="delete_medicine">
+                        <input type="hidden" name="H1" value="{{d[0]}}" />
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    {% endfor  %}
+
+
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

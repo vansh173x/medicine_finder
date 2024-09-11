@@ -1,0 +1,41 @@
+{% extends "a3.html" %}
+{% block m1 %}
+
+<h1>Delete Data</h1>
+{% if vansh %}
+<form method="post" action="delete_medicine_1">
+    <table cellpadding="4" style="font-weight:bold; color:#000;">
+        <tr>
+            <td>Medicine Id :</td>
+            <td><input readonly value="{{vansh[0]}}" type="text" id="txt1" name="T1"></td>
+        </tr>
+        <tr>
+            <td>Medicine Name :</td>
+            <td><input readonly value="{{vansh[1]}}" type="text" id="txt2" name="T2"></td>
+        </tr>
+        <tr>
+            <td>Company Name :</td>
+            <td><input value="{{vansh[2]}}" type="text" id="txt3" name="T3"></td>
+        </tr>
+        <tr>
+            <td>Licence Number :</td>
+            <td><input value="{{vansh[3]}}" type="text" id="txt4" name="T4"></td>
+        </tr>
+        <tr>
+            <td>Type of Medicine :</td>
+            <td><input value="{{vansh[4]}}" type="text" id="txt5" name="T5"></td>
+        </tr>
+        <tr>
+            <td>Price :</td>
+            <td><input value="{{vansh[5]}}" type="text" id="txt6" name="T6"></td>
+        </tr>
+    </table>
+
+    <button type="submit">DELETE</button>
+</form>
+
+{% elif msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

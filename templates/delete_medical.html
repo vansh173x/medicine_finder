@@ -1,0 +1,42 @@
+{% extends 'a2.html' %}
+{% block m1 %}
+
+<h1>Delete and Save</h1>
+
+{% if vansh %}
+<form method="post" action="delete_medical_1">
+     <table cellpadding="4" style="color:#000; font-weight:bold;">
+        <tr>
+            <td>Name :</td>
+            <td><input value="{{vansh[0]}}" type="text" name="T1" id="txt1"></td>
+        </tr>
+        <tr>
+            <td>Owner :</td>
+            <td><input value="{{vansh[1]}}" type="text" name="T2" id="txt2" ></td>
+        </tr>
+        <tr>
+            <td>Licence Number :</td>
+            <td><input value="{{vansh[2]}}" type="text" name="T3" id="txt3"></td>
+        </tr>
+        <tr>
+            <td>Address :</td>
+            <td><input value="{{vansh[3]}}" type="text" name="T4" id="txt4"></td>
+        </tr>
+        <tr>
+            <td>Contact :</td>
+            <td><input value="{{vansh[4]}}" type="text" name="T5" id="txt5"></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input readonly value="{{vansh[5]}}" type="text" name="T6" id="txt6"></td>
+        </tr>
+    </table>
+
+    <button type="submit" name="B1" id="btn1">DELETE</button>
+</form>
+
+{% elif msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

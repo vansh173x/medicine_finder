@@ -1,0 +1,88 @@
+{% extends "a2.html" %}
+{% block m1 %}
+
+<h1>Medical Data</h1>
+{% if vansh %}
+    {% for d in vansh %}
+        <h3>{{d[0]}}</h3>
+        <p>
+            owner:{{d[1]}}<br />
+            lno:{{d[2]}}<br />
+            address:{{d[3]}}<br />
+            contact:{{d[4]}}<br />
+            email:{{d[5]}}
+
+        {% if d[6]=='no' %}
+            <form method="post" enctype="multipart/form-data" action="medical_photo">
+                <p>
+                    <input type="hidden" name="H1" value="{{d[5]}}" />
+                    Photo<input type="file" name="F1" />
+                    <input type="submit" name="B1" value="Upload" />
+                </p>
+            </form>
+        {% else %}
+            <img src="../static/photos/{{d[6]}}" width="100" height="100" />
+            <form method="post" action="change_medical_photo" >
+                <input type="hidden" name="H1" value="{{d[5]}}">
+                <input type="hidden" name="H2" value="{{d[6]}}">
+                <input type="submit" name="B1" value="Change" />
+            </form>
+        {% endif %}
+        <table>
+            <tr>
+                <td>
+                    <form method="post" action="edit_medical">
+                        <input type="hidden" name="H1" value="{{d[5]}}" />
+                        <input type="submit" value="Edit"/>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="delete_medical">
+                        <input type="hidden" name="H1" value="{{d[5]}}" />
+                        <input type="submit" value="Delete" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    {% endfor  %}
+    <table border="1" cellspacing="0" width="100%" style="color:#000;">
+        <tr>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>lno</th>
+            <th>Address</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for d in vansh %}
+        <tr>
+            <td>{{d[0]}}</td>
+            <td>{{d[1]}}</td>
+            <td>{{d[2]}}</td>
+            <td>{{d[3]}}</td>
+            <td>{{d[4]}}</td>
+            <td>{{d[5]}}</td>
+            <td>
+                <form method="post" action="edit_medical">
+                    <input type="hidden" name="H1" value="{{d[5]}}" />
+                    <input type="submit" value="Edit" />
+                </form>
+            </td>
+            <td>
+                <form method="post" action="delete_medical">
+                    <input type="hidden" name="H1" value="{{d[5]}}" />
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

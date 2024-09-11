@@ -1,0 +1,58 @@
+{% extends "a1.html" %}
+{% block m1 %}
+
+<h1>Sign In</h1>
+<form method="POST" action="login" onsubmit="return A()">
+    <table style="color:#000; font-size:24px;">
+        <tr>
+            <td>Email :</td>
+            <td><input style="border-radius:10px; border-color:#000;" type="text" name="T1" id="txt1">
+                <span id="sp1"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Password :</td>
+            <td><input style="border-radius:10px; border-color:#000;" type="password" name="T2" id="txt2">
+                <span id="sp2"></span>
+            </td>
+        </tr>
+    </table>
+    <p><button style="border-radius:10px; background-color:#000; color:#fff; width:100px;" type="submit" name="B1" id="btn1">LOGIN</button></p>
+</form>
+
+<script>
+	function A()
+	{
+		var t1,t2,s1,s2;
+		t1=document.getElementById("txt1");
+		t2=document.getElementById("txt2");
+		s1=document.getElementById("sp1");
+		s2=document.getElementById("sp2");
+
+		var a,b;
+		a=t1.value;
+		b=t2.value;
+
+		s1.innerHTML="";
+		s2.innerHTML="";
+
+		if(a==null || a=="")
+		{
+			s1.innerHTML="Enter the Email";
+			t1.focus();
+			return false;
+		}
+		else if(b==null || b=="")
+		{
+			s2.innerHTML="Enter the password";
+			t2.focus();
+			return false;
+		}
+	}
+</script>
+
+{% if msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

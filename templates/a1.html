@@ -1,0 +1,50 @@
+<html>
+<head>
+
+<link href="../static/css/bootstrap l.css" rel="stylesheet" type="text/css">
+<script src="../static/scripts/jquery.js"></script>
+
+<script>
+$(document).ready(function(e) {
+    $("#p1").click(function(e){
+		$("#item").slideToggle(2000)
+	});
+});
+</script>
+
+</head>
+<body>
+<div class="container-fluid" style="min-height:250px; font-family:Georgia, 'Times New Roman', Times, serif; font-size:30px; text-align:left; font-weight:bold; color:#000; background-image:url(../static/images/medical.jpg); background-size:100%">WELCOME TO MEDICAL FINDER
+</div>
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid" style="min-height:10px;">
+    <a class="navbar-brand" href="#">MEDICALS</a>
+    <button class="navbar-toggler" id="p1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="item">
+
+          <button type="button" class="btn btn-outline-warning m-2"><a style="text-decoration:none; color:#fff;" href="#">HOME</a></button>
+            <button type="button" class="btn btn-outline-success m-2"><a  style="text-decoration:none; color:#fff;"  href="show_medicals">MEDICAL STORES</a></button>
+            <button type="button" class="btn btn-outline-danger m-2"><a  style="text-decoration:none; color:#fff;"  href="search">SEARCH</a></button>
+            <button type="button" class="btn btn-outline-info m-2"><a  style="text-decoration:none; color:#fff;"  href="login">SIGN IN</a></button>
+
+
+      <form class="d-flex" style="color:#000; margin-left:300px; padding-top:15px;">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" style="min-height:400px; background-color:#99C; color:#000; font-weight:bold;">
+{% block m1 %}
+{% endblock %}
+</div>
+ <div class="container-fluid" style="min-height:150px; background-color:#000; font-size:36px; font-family:Georgia; padding-left:350px; padding-top:40px; color:#999; font-weight:bold;">
+  &copy; All rights are reserved to Vansh
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<head>
+
+<link href="../static/css/bootstrap l.css" rel="stylesheet" type="text/css">
+<script src="../static/scripts/jquery.js"></script>
+
+<script>
+$(document).ready(function(e) {
+    $("#p1").click(function(){
+		$("#item1").slideToggle(2000);
+	});
+
+	$("#p2").click(function(){
+		$("#item2").slideToggle(2000);
+	});
+
+});
+</script>
+
+</head>
+<body>
+<div class="container-fluid" style="min-height:300px; font-family:Georgia, 'Times New Roman', Times, serif; font-size:50px; text-align:bottom; font-weight:bold; color:#000; background-image:url(../static/images/general.jpg); background-size:100%">MEDICALS
+</div>
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid" style="min-height:60px;">
+
+     <button class="navbar-toggler" id="p1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="collapse navbar-collapse" id="item1">
+
+          <button type="button" class="btn btn-outline-light m-2" style="width:180px;"><a style="text-decoration:none; color:#666;" href="medical_home">HOME</a></button>
+            <button type="button" class="btn btn-outline-success nav-item dropdown m-2" id="p2" style="width:180px;"><a class="nav-link dropdown-toggle" href="#">MANAGE MEDICINE</a>
+            	<ul class="dropdown-menu text-center" id="item2">
+                    <li><a href="medicine_add" class="dropdown-item">ADD MEDICINE</a></li>
+                    <li><a href="show_medicine" class="dropdown-item">SHOW MEDICINE</a></li>
+                </ul>
+               </button>
+               <button type="button" class="btn btn-outline-danger m-2" id="p3" style="width:180px;"><a style="text-decoration:none; color:#fff;" href="medical_profile">PROFILE</a></button>
+            <button type="button" class="btn btn-outline-info m-2" style="width:200px;"><a style="text-decoration:none; color:#fff;" href="changepass_medical">CHANGE PASSWORD</a></button>
+            <button type="button" class="btn btn-outline-warning m-2" style="width:180px;"><a style="text-decoration:none; color:#FFF;" href="logout">LOGOUT</a></button>
+
+
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" style="min-height:400px; background-color:#99C; color:#000; font-weight:bold;">
+{% block m1 %}
+{% endblock %}
+</div>
+ <div class="container-fluid" style="min-height:150px; background-color:#000; font-size:36px; font-family:Georgia; padding-left:350px; padding-top:40px; color:#999; font-weight:bold;">
+  &copy; All rights are reserved to Admin
+  </div>
+
+</body>
+</html>

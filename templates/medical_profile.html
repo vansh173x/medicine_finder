@@ -1,0 +1,41 @@
+{% extends "a3.html" %}
+{% block m1 %}
+
+<h1>My Profile</h1>
+{% if data %}
+    <form method="post" action="medical_profile">
+            <table cellpadding="4" style="color:#000; font-weight:bold;">
+        <tr>
+            <td>Name :</td>
+            <td><input value="{{data[0]}}" type="text" name="T1" id="txt1"></td>
+        </tr>
+        <tr>
+            <td>Owner :</td>
+            <td><input value="{{data[1]}}" type="text" name="T2" id="txt2" ></td>
+        </tr>
+        <tr>
+            <td>Licence Number :</td>
+            <td><input value="{{data[2]}}" type="text" name="T3" id="txt3"></td>
+        </tr>
+        <tr>
+            <td>Address :</td>
+            <td><input value="{{data[3]}}" type="text" name="T4" id="txt4"></td>
+        </tr>
+        <tr>
+            <td>Contact :</td>
+            <td><input value="{{data[4]}}" type="text" name="T5" id="txt5"></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td>{{data[5]}}</td>
+        </tr>
+    </table>
+        <button type="submit">Change</button>
+    </form>
+
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

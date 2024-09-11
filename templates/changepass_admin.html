@@ -1,0 +1,75 @@
+{% extends "a2.html" %}
+{% block m1 %}
+
+<h1>Change Password</h1>
+
+<form method="post" action="changepass_admin" onsubmit="return A()">
+  <table style="color:#000; font-weight:bold" width="100%" cellpadding="4">
+    <tr>
+      <td width="15%">Old Password :</td>
+      <td><input type="password" name="T1" id="txt1" >
+            <span id="sp1"></span>
+      </td>
+    </tr>
+     <tr>
+      <td>New Password :</td>
+      <td><input type="password" name="T2" id="txt2" >
+            <span id="sp2"></span>
+      </td>
+    </tr>
+     <tr>
+      <td>Confirm Password :</td>
+      <td><input type="password" name="T3" id="txt3" >
+            <span id="sp3"></span>
+      </td>
+    </tr>
+  </table>
+  <p><button type="submit" name="B1" id="btn1">Change Password</button></p>
+</form>
+
+<script>
+	function A()
+	{
+		var t1,t2,t3,s1,s2,s3;
+		t1=document.getElementById("txt1");
+		t2=document.getElementById("txt2");
+		t3=document.getElementById("txt3");
+		s1=document.getElementById("sp1");
+		s2=document.getElementById("sp2");
+		s3=document.getElementById("sp3");
+
+		var a,b,c;
+		a=t1.value;
+		b=t2.value;
+		c=t3.value;
+
+		s1.innerHTML="";
+		s2.innerHTML="";
+		s3.innerHTML="";
+
+		if(a==null || a=="")
+		{
+			s1.innerHTML="*Enter the Old password";
+			t1.focus();
+			return false;
+		}
+		else if(b==null || b=="")
+		{
+			s2.innerHTML="*Enter the new password";
+			t2.focus();
+			return false;
+		}
+		else if(c==null || c=="")
+		{
+			s3.innerHTML="*Re-write the password"
+			t3.focus();
+			return false;
+		}
+	}
+</script>
+
+{% if msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}
